@@ -24,12 +24,19 @@ function Prompt() {
             await axios.post('http://localhost:5000/api/chat', { Input: value })
                 .then(
                     res => {
+                        if(res.data.message !== undefined && res.data.message.error !== undefined){
+                            toaster.create({
+                                description: res.data.message.error.message,
+                                type: 'error',
+                                duration: 5000
+                            })
+                        }
                         setShowSpinner(false);
                         histRef.current.AddItem('', res.data.output_text);
                     })
                 .catch(err => {
                     toaster.create({
-                        title: `An connection error has occurred`,
+                        title: `A connection error has occurred`,
                         type: 'error',
                         duration: 5000
                     })
@@ -50,7 +57,7 @@ function Prompt() {
     if (showSpinner) {
         return (
             <div className="main-container">
-            <Toaster></Toaster>
+                <Toaster></Toaster>
                 <History ref={histRef}></History>
                 <Spinner></Spinner>
             </div>
