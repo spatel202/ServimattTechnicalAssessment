@@ -1,0 +1,40 @@
+section {
+    overflow: auto;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column-reverse;
+    border-color: darkgrey;
+    border-radius: 25px;
+    width: 100%;
+}
+p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.prompt {
+    background-color: lightskyblue;
+    border-radius: 25px;
+    text-align: left;
+    margin-left: 5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    float: right;
+    clear: right;
+    max-width: 40%;
+}
+.response{
+    background-color: lightgray;
+    border-radius: 25px;
+    text-align: left;
+    margin-right: 5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    float: left;
+    clear: left;
+    max-width: 40%;
+}
+.clear-button{
+    float: right;
+}
