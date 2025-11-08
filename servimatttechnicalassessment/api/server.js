@@ -28,6 +28,6 @@ app.post('/api/chat', async function (req, res) {
         })
         res.json({ output_text: response.output_text });
     } catch (ex) {
-        res.json({message: ex})
+        res.json({error: ex})
     }
 });

@@ -24,9 +24,10 @@ function Prompt() {
             await axios.post('http://localhost:5000/api/chat', { Input: value })
                 .then(
                     res => {
-                        if(res.data.message !== undefined && res.data.message.error !== undefined){
+                        if (res.data.error !== undefined) {
+                            console.error(res.data.error.error.message);
                             toaster.create({
-                                description: res.data.message.error.message,
+                                title: res.data.error.error.message,
                                 type: 'error',
                                 duration: 5000
                             })
